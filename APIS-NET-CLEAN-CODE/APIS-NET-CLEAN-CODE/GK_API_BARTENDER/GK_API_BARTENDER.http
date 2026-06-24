@@ -1,0 +1,6 @@
+@GK_API_BARTENDER_HostAddress = http://localhost:5030
+
+GET {{GK_API_BARTENDER_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

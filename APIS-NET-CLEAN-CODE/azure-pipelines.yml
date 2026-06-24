@@ -1,0 +1,120 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: 'PreAgent'
+  demands:
+    - Agent.Name -equals PreAgent
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+# ---------------------------
+# Restaurar NuGet y compilar
+# ---------------------------
+- task: DotNetCoreCLI@2
+  displayName: 'Restaurar NuGet'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Compilar solución'
+  inputs:
+    command: 'build'
+    projects: '**/*.sln'
+    arguments: '--configuration $(buildConfiguration)'
+
+# --------------------------
+# PUBLICAR Y EXTRAER API1
+# --------------------------
+- task: DotNetCoreCLI@2
+  displayName: 'Publicar API1 (GK_API_NAV)'
+  inputs:
+    command: 'publish'
+    projects: 'GK_API_NAV/GK_API_NAV.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/API1_output'
+
+# Ver archivos generados
+- script: dir "$(Build.ArtifactStagingDirectory)\API1_output" /b
+  displayName: 'Ver archivos en API1_output'
+
+# Mover SOLO GK_API_NAV.zip
+- task: CopyFiles@2
+  displayName: 'Copiar GK_API_NAV.zip'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDirectory)/API1_output'
+    Contents: 'GK_API_NAV.zip'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/API1'
+
+# Publicar solo ese zip como artefacto
+- task: PublishBuildArtifacts@1
+  displayName: 'Publicar Artifact API1'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/API1/GK_API_NAV.zip'
+    ArtifactName: 'API1'
+    publishLocation: 'Container'
+
+# --------------------------
+# PUBLICAR Y EXTRAER API2
+# --------------------------
+- task: DotNetCoreCLI@2
+  displayName: 'Publicar API2 (GK_API_BARTENDER)'
+  inputs:
+    command: 'publish'
+    projects: 'GK_API_BARTENDER/GK_API_BARTENDER.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/API2_output'
+
+# Ver archivos generados
+- script: dir "$(Build.ArtifactStagingDirectory)\API2_output" /b
+  displayName: 'Ver archivos en API2_output'
+
+# Mover SOLO GK_API_BARTENDER.zip
+- task: CopyFiles@2
+  displayName: 'Copiar GK_API_BARTENDER.zip'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDirectory)/API2_output'
+    Contents: 'GK_API_BARTENDER.zip'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/API2'
+
+# Publicar solo ese zip como artefacto
+- task: PublishBuildArtifacts@1
+  displayName: 'Publicar Artifact API2'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/API2/GK_API_BARTENDER.zip'
+    ArtifactName: 'API2'
+    publishLocation: 'Container'
+
+# --------------------------
+# PUBLICAR Y EXTRAER API3
+# --------------------------
+- task: DotNetCoreCLI@2
+  displayName: 'Publicar API3 (AUTH)'
+  inputs:
+    command: 'publish'
+    projects: 'GK_API_AUTH/GK_API_AUTH.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/API3_output'
+
+# Ver archivos generados
+- script: dir "$(Build.ArtifactStagingDirectory)\API3_output" /b
+  displayName: 'Ver archivos en API3_output'
+
+# Mover SOLO GK_API_AUTH.zip
+- task: CopyFiles@2
+  displayName: 'Copiar GK_API_AUTH.zip'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDirectory)/API3_output'
+    Contents: 'GK_API_AUTH.zip'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/API3'
+
+# Publicar solo ese zip como artefacto
+- task: PublishBuildArtifacts@1
+  displayName: 'Publicar Artifact API3'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/API3/GK_API_AUTH.zip'
+    ArtifactName: 'API3'
+    publishLocation: 'Container'

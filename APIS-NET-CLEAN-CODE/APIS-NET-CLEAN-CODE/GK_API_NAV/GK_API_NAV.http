@@ -1,0 +1,6 @@
+@GK_API_NAV_HostAddress = http://localhost:5132
+
+GET {{GK_API_NAV_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

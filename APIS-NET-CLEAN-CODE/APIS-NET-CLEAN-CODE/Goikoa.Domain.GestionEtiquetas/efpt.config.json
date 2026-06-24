@@ -1,0 +1,134 @@
+﻿{
+   "CodeGenerationMode": 5,
+   "ContextClassName": "BDGestionEtiquetasContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.0",
+   "ModelNamespace": null,
+   "OutputContextPath": "DAL\/Context",
+   "OutputPath": "DAL\/Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Goikoa.Domain.GestionEtiquetas",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Campo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CamposNavision]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CamposWSBartender]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cliente]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CodificacionTiposCodigoBarras]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Etiqueta]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EtiquetaCamposValores]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EtiquetaCodigosBarra]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EtiquetaLabels]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HistoricoImpresion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IdiomasLabels]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LabelsMaster]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Plantilla]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PlantillaCampos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Secciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TiposCampo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TiposCodigoBarra]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TiposConservacion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TiposEnvasado]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TiposEtiqueta]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TiposLabels]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Ubicaciones]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}

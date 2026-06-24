@@ -1,0 +1,6 @@
+@GK_API_AUTH_HostAddress = http://localhost:5149
+
+GET {{GK_API_AUTH_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
